@@ -24,7 +24,6 @@ public class PerfectSquare {
         return false;
     }
 
-    }
     boolean isPerfectSquare(int n){
         int i = 1;
 
