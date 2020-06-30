@@ -1,8 +1,10 @@
+package insert;
 import tree.MyTreeNode;
 import java.util.*;
+
 public class TreeInsert{
     Queue<MyTreeNode>list = null;
-    TreeInsert() {
+    public TreeInsert() {
         this.list = new LinkedList<>();
     }
     public MyTreeNode createMyTreeNode(String data) {
@@ -54,15 +56,21 @@ public class TreeInsert{
         System.out.println(temp.data);
         printTree(list.poll());
     }
+
+    public MyTreeNode executeTreeOpr(String arr[]) {
+        MyTreeNode head = null;
+        for(String item: arr) {
+            head = insert(item, head);
+        }
+        this.list.clear();
+        return head;
+    }
+
     public static void main(String[] args) {
         TreeInsert tree = new TreeInsert();
         String arr[] = {"Shourya", "Mittal", "Is", "a", "Good", "Boy"};
-        MyTreeNode head = null;
-        for(String item: arr) {
-            head = tree.insert(item, head);
-        }
-        tree.list.clear();
+        MyTreeNode head = tree.executeTreeOpr(arr);
+        
         tree.printTree(head);
-
     }
 }
